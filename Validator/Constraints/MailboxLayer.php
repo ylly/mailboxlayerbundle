@@ -47,7 +47,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageCatchAll = 'The smtp request cannot be handled by the server';
+    public $messageCatchAll = 'The requested email address is not part of a unsupported domain';
 
     /**
      * @var bool
@@ -67,7 +67,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageScore = 'The quality score of the email address is too low. Please, provides another one';
+    public $messageScore = 'The quality score of the email address is too low. Please, provides another address';
 
     /**
      * @var bool

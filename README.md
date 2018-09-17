@@ -52,9 +52,11 @@ See https://mailboxlayer.com/product
 Then, add it to the `app/config/config.yml` file of your project:
 
 ```yaml
-mailbox_layer:
+ylly_mailbox_layer:
   access_key: generated access key from mailboxLayer 
   proxy: null
+  monolog_level: 0
+  monolog_channel: app
 ```
 
 Step 4 : Use
@@ -74,7 +76,7 @@ class User
 {
     /**
     * @var string
-    * @MailboxLayerAssert\MailboxLayerValidator
+    * @MailboxLayerAssert\MailboxLayer
     */
     private $email;
 }
@@ -113,7 +115,7 @@ when API mailboxLayer is down or when there's a problem of user's right
      /**
      * @var string
      * 
-     * @MailboxLayerAssert\MailboxLayerValidator(
+     * @MailboxLayerAssert\MailboxLayer(
      * checkMx = true, 
      * checkSmtp = true, 
      * isCatchAll = false,

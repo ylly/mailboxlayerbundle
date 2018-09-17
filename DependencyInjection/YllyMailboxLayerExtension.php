@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\HttpKernel\Kernel;
 
-class EmailCheckerExtension extends Extension
+class YllyMailboxLayerExtension extends Extension
 {
     const NEW_FACTORY_SF_VERSION = 20600;
 
@@ -20,8 +20,11 @@ class EmailCheckerExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Ressources/config'));
         $loader->load('services.yml');
+
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
 
         if (Kernel::VERSION_ID < self::NEW_FACTORY_SF_VERSION) {
             $loader->load('services_factory_legacy.yml');
@@ -31,14 +34,14 @@ class EmailCheckerExtension extends Extension
 
         if ($this->hasMonologBundle($container->getParameter('kernel.bundles'))) {
             $loader->load('services_logger.yml');
+            $definitionMonolog = $container->getDefinition('ylly.logger.monolog.mailbox_layer');
+            $definitionMonolog->replaceArgument(1, $config['monolog_level']);
+            $definitionMonolog->addTag('monolog.logger', ['channel' => $config['monolog_channel']]);
         }
 
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
         $definitionClient = $container->getDefinition('ylly.mailbox_layer');
-        $definitionClient->replaceArgument(0, $config['mailbox_layer']['access_key']);
-        $definitionClient->replaceArgument(1, $config['mailbox_layer']['proxy']);
+        $definitionClient->replaceArgument(0, $config['access_key']);
+        $definitionClient->replaceArgument(1, $config['proxy']);
 
         $taggedServices = $container->findTaggedServiceIds('ylly.logger');
         $definitionLogger = $container->getDefinition('ylly.logger.mailbox_layer');

@@ -71,7 +71,7 @@ class MailboxLayerValidator extends ConstraintValidator
             return;
         }
 
-        if ($constraint->isCatchAll === true && $response->getCatchAll() === false) {
+        if ($constraint->isCatchAll === true && $response->getCatchAll() === true) {
             $this->logger->write(sprintf(
                 'The email address %s is part of a catch-all mailbox',
                 $value

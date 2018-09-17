@@ -12,11 +12,18 @@ class MonologLogger implements LoggerInterface
     private $monolog;
 
     /**
-     * @param Logger $monolog
+     * @var $level
      */
-    public function __construct(Logger $monolog)
+    private $level;
+
+    /**
+     * @param Logger $monolog
+     * @param int $level
+     */
+    public function __construct(Logger $monolog, $level)
     {
         $this->monolog = $monolog;
+        $this->level = $level;
     }
 
     /**
@@ -24,6 +31,6 @@ class MonologLogger implements LoggerInterface
      */
     public function log($message)
     {
-        $this->monolog->addInfo($message);
+        $this->monolog->addRecord($this->level, $message);
     }
 }

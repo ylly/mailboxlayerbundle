@@ -21,6 +21,12 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('proxy')
                     ->defaultNull()
                 ->end()
+                ->scalarNode('monolog_level')
+                    ->defaultValue(0)
+                ->end()
+                ->scalarNode('monolog_channel')
+                    ->defaultValue('app')
+                ->end()
             ->end()
         ;
 

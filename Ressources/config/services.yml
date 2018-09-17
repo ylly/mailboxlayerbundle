@@ -1,0 +1,10 @@
+services:
+  ylly.validator.mailbox_layer:
+    class: Ylly\Bundle\MailboxLayer\Validator\Constraints\MailboxLayerValidator
+    arguments: ['@ylly.mailbox_layer', '@ylly.logger.mailbox_layer']
+    tags:
+    - { name: validator.constraint_validator, alias: mailbox_layer }
+
+  ylly.logger.mailbox_layer:
+    class: Ylly\Bundle\MailboxLayer\Logger\Logger
+

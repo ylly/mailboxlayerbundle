@@ -1,0 +1,6 @@
+services:
+  ylly.logger.monolog.mailbox_layer:
+    class: Ylly\Bundle\MailboxLayer\Logger\MonologLogger
+    arguments: ['@logger']
+    tags:
+    - { name: ylly.logger }

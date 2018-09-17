@@ -1,0 +1,23 @@
+{
+    "name": "ylly/mailboxlayerbundle",
+    "description": "Symfony bundle for ylly/mailboxlayer's use",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Corentin HUIBANT",
+            "email": "corentin@ylly.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ylly\\Bundle\\MailboxLayer\\": "/"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "ylly/mailboxlayer": "^1.0",
+        "symfony/framework-bundle": "~2.3||~3.0||~4.0",
+        "symfony/validator": "~2.3||~3.0||~4.0"
+    }
+}

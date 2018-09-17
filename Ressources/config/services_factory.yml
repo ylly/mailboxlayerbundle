@@ -1,0 +1,5 @@
+services:
+  ylly.mailbox_layer:
+    class: YllyMailboxLayer\EmailChecker
+    factory:  ['YllyMailboxLayer\Factory\EmailCheckerFactory', create]
+    arguments: ['', '']

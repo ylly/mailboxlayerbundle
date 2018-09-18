@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
                     ->defaultNull()
                 ->end()
                 ->scalarNode('monolog_level')
-                    ->defaultValue(0)
+                    ->defaultValue(200)
                 ->end()
                 ->scalarNode('monolog_channel')
                     ->defaultValue('app')

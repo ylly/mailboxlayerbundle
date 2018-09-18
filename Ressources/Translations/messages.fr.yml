@@ -1,0 +1,7 @@
+error_email_basic: Une erreur est survenue durant la vérification de votre adresse email.
+error_email_format: Le format de l'adresse email est invalide.
+error_email_mx: Il n'y a aucune archive-mx concernant votre adresse email.
+error_email_smtp: La requête smtp n'a pas pu être traitée par le serveur.
+error_email_catch_all: Votre adresse email fait partie intégrante d'un domaine non-supporté.
+error_email_disposable: Votre adresse email est éphémère. S'il-vous-plait, utilisez une autre adresse.
+error_email_score: Le score de qualité de votre adresse email est trop bas. S'il-vous-plait, utilisez une autre adresse.

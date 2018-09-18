@@ -61,12 +61,12 @@ class MailboxLayerValidator extends ConstraintValidator
             return;
         }
 
-        if ($response->getMxFound() === false && $constraint->checkMx === true) {
+        if ($constraint->checkMx === true && $response->getMxFound() === false) {
             $this->handleViolation($constraint->messageMx);
             return;
         }
 
-        if ($response->getSmtpCheck() === false && $constraint->checkSmtp === true) {
+        if ($constraint->checkSmtp === true && $response->getSmtpCheck() === false) {
             $this->handleViolation($constraint->messageSmtp);
             return;
         }

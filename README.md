@@ -34,28 +34,35 @@ class AppKernel extends Kernel
             // ...
             new Ylly\Bundle\MailboxLayer\YllyMailboxLayerBundle(),
         );
-
-        // ...
     }
-
-    // ...
 }
 ```
 
 Step 3 : Generate access_key
 -------------------------
 
-You need to generate a key on mailboxLayer and add it to the configuration.yml
+You need to generate a key on mailboxLayer and add it to the config.yml
 
 See https://mailboxlayer.com/product
 
-Then, add it to the `app/config/config.yml` file of your project:
+Then, add it to the `app/config/config.yml` file of your project :
+
+```yaml
+ylly_mailbox_layer:
+  access_key: generated access key from mailboxLayer 
+```
+
+For a maximal configuration (and in cases you are using your own proxy or the monolog bundle), there is some 
+config parameters you can modify. 
+
+By default, the level of the message displayed is 200 (a.k.a. INFO) and the channel is app. 
+For more information, see : https://symfony.com/doc/current/logging.html
 
 ```yaml
 ylly_mailbox_layer:
   access_key: generated access key from mailboxLayer 
   proxy: null
-  monolog_level: 0
+  monolog_level: 200
   monolog_channel: app
 ```
 
@@ -95,13 +102,13 @@ There is a few options you can tweak to perform your email verifications :
 Warning ! the catchAll option can only be used by mailboxlayer's professional accounts. Default false.
    
 - RefuseDisposable check that the email address is not precarious. 
-set true if you don't want disposable address.
+set true if you don't want disposable address. Default false.
 
 - RefuseUnderScore check The quality score of the email address. 
-Allow float between 0 and 1 if you don't want the email's scores to be lower of your chosen limit.
+Allow float between 0 and 1 if you don't want the email's scores to be lower of your chosen limit. Default 0.
 
 - SkipIfServerErrors. When true, this option permits email to pass the verifications
-when API mailboxLayer is down or when there's a problem of user's right
+when API mailboxLayer is down or when there's a problem of user's right. Default true.
 
 ```php
 <?php

@@ -1,0 +1,7 @@
+error_email_basic: An error occurred during the verifications of your email.
+error_email_format: The format is invalid.
+error_email_mx: There is no MX-records for this email address.
+error_email_smtp: The smtp request cannot be handled by the server.
+error_email_catch_all: Your email address is part of an unsupported domain.
+error_email_disposable: Your email address is disposable. Please provides one which is not.
+error_email_score: The quality score of the email address is too low. Please, provides another email address.

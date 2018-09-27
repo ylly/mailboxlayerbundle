@@ -12,12 +12,12 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageError = 'An error occurred during the verifications of your email';
+    public $messageError = 'error_email_basic';
 
     /**
      * @var string
      */
-    public $messageFormat = 'The format is invalid';
+    public $messageFormat = 'error_email_format';
 
     /**
      * @var bool
@@ -27,7 +27,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageMx = 'There is no MX-records for this email address';
+    public $messageMx = 'error_email_mx';
 
     /**
      * @var bool
@@ -37,7 +37,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageSmtp = 'The smtp request cannot be handled by the server';
+    public $messageSmtp = 'error_email_smtp';
 
     /**
      * @var bool
@@ -47,7 +47,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageCatchAll = 'Your email address is part of an unsupported domain';
+    public $messageCatchAll = 'error_email_catch_all';
 
     /**
      * @var bool
@@ -57,7 +57,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageDisposable = 'Your email address is disposable. Please provides one which is not';
+    public $messageDisposable = 'error_email_disposable';
 
     /**
      * @var int
@@ -67,7 +67,7 @@ class MailboxLayer extends Constraint
     /**
      * @var string
      */
-    public $messageScore = 'The quality score of the email address is too low. Please, provides another email address';
+    public $messageScore = 'error_email_score';
 
     /**
      * @var bool

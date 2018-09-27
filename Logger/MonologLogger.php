@@ -2,12 +2,12 @@
 
 namespace Ylly\Bundle\MailboxLayer\Logger;
 
-use Symfony\Bridge\Monolog\Logger;
+use Symfony\Bridge\Monolog\Logger as Monolog;
 
 class MonologLogger implements LoggerInterface
 {
     /**
-     * @var Logger
+     * @var Monolog
      */
     private $monolog;
 
@@ -17,10 +17,10 @@ class MonologLogger implements LoggerInterface
     private $level;
 
     /**
-     * @param Logger $monolog
+     * @param Monolog $monolog
      * @param int $level
      */
-    public function __construct(Logger $monolog, $level)
+    public function __construct(Monolog $monolog, $level)
     {
         $this->monolog = $monolog;
         $this->level = $level;
